@@ -45,13 +45,6 @@
             </section>
 
             <section>
-                <h3>Ejemplo</h3>
-                <p>\( \mathbb{Z} \to \mathbb{Z}_6,\ \varphi(n) = n \mod 6 \)</p>
-                <p class="fragment">\( \varphi(a + b) = (a + b) \mod 6 = \varphi(a) + \varphi(b) \)</p>
-                <p class="fragment">\( \Rightarrow \varphi \) es un morfismo</p>
-            </section>
-
-            <section>
                 <section>
                     <h3>Núcleo de un Morfismo</h3>
                     <p>\[ \ker(\varphi) = \{ g \in G \mid \varphi(g) = e_H \} \]</p>
@@ -84,14 +77,7 @@
             </section>
 
             <section>
-                <h3>Primer Teorema de Isomorfía</h3>
-                <p>\[ G / \ker(\varphi) \cong \text{Im}(\varphi) \]</p>
-                <p class="fragment">Conecta la estructura de \( G \) con la imagen de \( \varphi \)</p>
-                <p class="fragment">Permite estudiar \( G \) a través de \( \varphi \)</p>
-            </section>
-
-            <section>
-                <h3>Diagrama del Teorema</h3>
+                <h3>Diagrama del teorema</h3>
                 <p>\[ \begin{array}{ccc}
                     G & \xrightarrow{\varphi} & H \\
                     \downarrow & & \uparrow \\
@@ -99,6 +85,38 @@
                     \end{array} \]</p>
                 <p class="fragment">Este diagrama ilustra cómo el cociente de \( G \) por su núcleo se relaciona con la
                     imagen de \( \varphi \)</p>
+            </section>
+
+            <section>
+                <h2>RSA y morfismos de grupos</h2>
+                <p>La función de cifrado RSA es un morfismo sobre el grupo \( \mathbb{Z}_n^* \)</p>
+            </section>
+
+            <section>
+                <h2>Recordamos el esquema RSA</h2>
+                <ul>
+                    <li>\( m \in \mathbb{Z}_n^* \)</li>
+                    <li>\( c = m^e \mod n \)</li>
+                    <li>\( m = c^d \mod n \)</li>
+                    <li>\( ed \equiv 1 \mod \varphi(n) \)</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>¿Por qué es un morfismo?</h2>
+                <p>La función:</p>
+                <p>\[ f(x) = x^e \text{(mod n)} \]</p>
+                <p class="fragment">es un <strong>morfismo de grupos</strong> porque:</p>
+                <p class="fragment">\[ f(xy) = (xy)^e \equiv x^e y^e = f(x) f(y) \text{(mod n)} \]</p>
+            </section>
+
+            <section>
+                <h2>¿Para qué sirve esto?</h2>
+                <ul style="font-size: 0.95em">
+                    <li class="fragment">Preserva la multiplicación ⇒ estructura de grupo conservada</li>
+                    <li class="fragment">Permite operaciones sobre datos cifrados (homomorfismo)</li>
+                    <li class="fragment">Base para firmas, verificaciones y computación segura</li>
+                </ul>
             </section>
 
             <section data-background-color="#f6eee3">
@@ -112,12 +130,12 @@
             <section>
                 <h3>Solución</h3>
                 <p>\( f(a) = a^{-1} \)</p>
-                <p>\( f \) siempre es biyectiva (involución): \( f(f(a)) = a \)</p>
-                <p>Es morfismo \( \Leftrightarrow f(ab) = f(a)f(b) \)</p>
-                <p>\( f(ab) = (ab)^{-1} = b^{-1}a^{-1} \)</p>
-                <p>\( f(a)f(b) = a^{-1}b^{-1} \)</p>
-                <p>Entonces: \( f(ab) = f(a)f(b) \Leftrightarrow b^{-1}a^{-1} = a^{-1}b^{-1} \)</p>
-                <p>\( \Leftrightarrow G \) es abeliano.</p>
+                <p class="fragment">\( f \) siempre es biyectiva: \( f(f(a)) = a \)</p>
+                <p class="fragment">Es morfismo \( \Leftrightarrow f(ab) = f(a)f(b) \)</p>
+                <p class="fragment">\( f(ab) = (ab)^{-1} = b^{-1}a^{-1} \)</p>
+                <p class="fragment">\( f(a)f(b) = a^{-1}b^{-1} \)</p>
+                <p class="fragment">Entonces: \( f(ab) = f(a)f(b) \Leftrightarrow b^{-1}a^{-1} = a^{-1}b^{-1} \)</p>
+                <p class="fragment">\( \Leftrightarrow G \) es abeliano</p>
             </section>
 
             <section>
@@ -125,7 +143,6 @@
                 <p>Los morfismos de grupos permiten estudiar la estructura interna de los grupos mediante funciones que
                     preservan sus propiedades algebraicas.</p>
                 <p class="fragment">Núcleo e imagen son esenciales para entender el comportamiento del morfismo.</p>
-                <p class="fragment">Si no entendieron nada nosotros tampoco..</p>
             </section>
 
             <section>

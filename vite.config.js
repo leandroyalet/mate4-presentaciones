@@ -126,8 +126,8 @@ function socketIOPlugin() {
             url.replace(/:(\d+)\//, (_, port) => `:${colors.bold(port)}/`)
           );
 
-        const local = `http://${address}:${port}/remote/`;
-        const network = `http://${ip}:${port}/remote/`;
+        const local = `http://${address}:${port}${base}/remote/`;
+        const network = `http://${ip}:${port}${base}/remote/`;
         console.log();
         console.info(
           `  ${colors.green("➜")}  ${colors.bold("Remote Local")}:   ${colorUrl(
