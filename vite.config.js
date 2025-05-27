@@ -145,8 +145,11 @@ function socketIOPlugin() {
   };
 }
 
+const base = "/mate4-presentaciones";
+
 export default defineConfig(({ command }) => {
   return {
+    base,
     publicDir,
     root,
     plugins: [
@@ -158,7 +161,9 @@ export default defineConfig(({ command }) => {
             Object.keys(entries).map((name) => [name, `/${name}/`])
           );
           const links = Object.entries(relativePaths)
-            .map(([name, path]) => `<li><a href="${path}">${name}</a></li>`)
+            .map(
+              ([name, path]) => `<li><a href="${base}${path}">${name}</a></li>`
+            )
             .join("\n");
 
           // Reemplaza <!-- APP_LINKS --> en el HTML
