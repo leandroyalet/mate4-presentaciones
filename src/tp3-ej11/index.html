@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Números racionales</title>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Números racionales</h1>
+                <h3>$\frac{Bonoris}{Yalet} \in \mathbb{Q}$</h3>
+            </section>
+            <section data-background-gradient="radial-gradient(#ffffff, #333333)" data-transition="zoom">
+                <h2>Auspician</h2>
+                <img
+                    src="https://postgrado.info.unlp.edu.ar/wp-content/uploads/2023/10/Logo-Inform%C3%A1tica-web-UNLP-vector-01.png" />
+            </section>
+            <section>
+                <h2>Ejercicio 11</h2>
+                <p>
+                    Demostrar que dados
+                    \( \color{red}{a} \) y \( \color{red}{b} \) en \( \color{red}\mathbb{Q} \) tales que
+                    \( \color{red}{a \lt b} \), existe \( \color{red}{x \in \mathbb{Q}} \) tal que \( \color{red}{a \lt
+                    x \lt
+                    b} \)</p>
+            </section>
+            <section data-background-color="rgb(38, 38, 38)">
+                <video data-cuts='[1200, 3000]'>
+                    <source src="/assets/videos/rational_midpoint/1080p60/RationalMidpoint.mp4" type="video/mp4" />
+                </video>
+            </section>
+            <section data-transition="zoom">
+                <h1 style="color:yellow">Gracias totales</h1>
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Logo_Me_Ver%C3%A1s_Volver_Hits_y_M%C3%A1s.svg" />
+            </section>
+            <section>
+                <p>Vamos de verdad...</p>
+                <ul style="font-size: 0.8em">
+                    <li>Primero: tenemos que ver que existe este número racional</li>
+                    <li>Segundo: tenemos que verificar que efectivamente está entre a y b</li>
+                </ul>
+            </section>
+            <section>
+                <p>Sean \( a, b \in \mathbb{Q} \), tales que existen \( p, q, n, m \in \mathbb{Z} \) con \( q \ne 0 \) y
+                    \( m \ne 0 \)</p>
+                <p>$$a = \frac{p}{q}, \quad b = \frac{n}{m}$$</p>
+            </section>
+            <section class="text-sm">
+                <p>$$a + b = \frac{p}{q} + \frac{n}{m}$$</p>
+                <p class="fragment">$$= \frac{p \cdot m}{q \cdot m} + \frac{n \cdot q}{m \cdot q}$$</p>
+                <p class="fragment">$$= \frac{pm}{qm} + \frac{nq}{qm}$$</p>
+                <p class="fragment">$$= \frac{pm + nq}{qm}$$</p>
+                <p class="fragment">$$\in \mathbb{Q}, \quad \text{ya que } pm + nq \in \mathbb{Z},\ qm \in \mathbb{Z}
+                    \setminus \{0\}$$</p>
+                <p class="fragment">
+                    <span>
+                        $$\text{Como la suma y el producto son operaciones cerradas en } \mathbb{Z},$$
+                    </span>
+                </p>
+                <p class="fragment">
+                    <span>
+                        $$\text{entonces el resultado pertenece a } \mathbb{Q}$$
+                    </span>
+                </p>
+            </section>
+            <section class="text-sm">
+                <p>Entonces</p>
+                <p>$$a + b = \frac{pm + nq}{qm}$$</p>
+                <p class="fragment">$$\frac{a + b}{2} = \frac{1}{2} \cdot \frac{pm + nq}{qm}$$</p>
+                <p class="fragment">$$= \frac{pm + nq}{2qm}$$</p>
+                <div>
+                    <p class="fragment">$$\text{Numerador: } pm + nq \in \mathbb{Z}$$</p>
+                    <p class="fragment">$$\text{Denominador: } 2qm \in \mathbb{Z} \setminus \{0\}$$</p>
+                    <p class="fragment">
+                        $$\Rightarrow \frac{pm + nq}{2qm} \in \mathbb{Q}$$
+                    </p>
+                    <p class="fragment">
+                        $$\text{La división de un número racional entre un entero distinto de cero sigue siendo un
+                        número racional.}$$
+                    </p>
+                </div>
+            </section>
+            <section class="text-sm">
+                <p>Resta ver que x está entre a y b</p>
+                <p>$$a = \frac{a}{1}$$</p>
+                <p class="fragment">$$= \frac{2a}{2 \cdot 1}$$</p>
+                <p class="fragment">$$= \frac{a + a}{2}$$</p>
+                <p class="fragment">$$= \frac{a}{2} + \frac{a}{2}$$</p>
+                <p class="fragment">$$\lt \frac{a}{2} + \frac{b}{2} \quad \text{(ya que } a \lt b \text{)}$$</p>
+                <p class="fragment">$$= \frac{a + b}{2}$$</p>
+                <p class="fragment">$$\therefore \quad a \lt \frac{a + b}{2}$$ </p>
+            </section>
+            <section class="text-sm">
+                <p>$$b = \frac{b}{1}$$</p>
+                <p class="fragment">$$= \frac{2b}{2 \cdot 1}$$</p>
+                <p class="fragment">$$= \frac{b + b}{2}$$</p>
+                <p class="fragment">$$= \frac{b}{2} + \frac{b}{2}$$</p>
+                <p class="fragment">$$> \frac{a}{2} + \frac{b}{2} \quad \text{(ya que } a \lt b \text{)}$$</p>
+                <p class="fragment">$$= \frac{a + b}{2}$$</p>
+                <p class="fragment">$$\therefore \quad b > \frac{a + b}{2}$$</p>
+            </section>
+            <section>
+                <p class="fragment">$$\therefore$$</p>
+                <p class="fragment">$$a \lt \frac{a + b}{2} \lt b$$</p>
+                <p class="fragment">$$\Rightarrow \exists \, x = \frac{a + b}{2} \in \mathbb{Q} \quad \text{tal
+                    que} \quad a \lt x \lt b$$ </p>
+            </section>
+            <section>
+                <h2>Adicionales</h2>
+                <h3>Ejercicio 6</h3>
+                <ol>
+                    <li class="fragment">$u + v \in \mathbb{Q}$ y $u - v \in \mathbb{Q}$</li>
+                    <li class="fragment">$u \cdot v \in \mathbb{Q}$</li>
+                    <li class="fragment">Si $u$ es no nulo, entonces $u^{-1} \in \mathbb{Q}$</li>
+                </ol>
+            </section>
+            <section>
+                <h1 style="color:yellow">Gracias totales</h1>
+            </section>
+        </div>
+    </div>
+
+    <script type="module" src="../main.js"></script>
+</body>
+
+</html>

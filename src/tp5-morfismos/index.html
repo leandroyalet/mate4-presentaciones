@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Morfismos de grupos</title>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2>Morfismos de Grupos</h2>
+                <p>🍔🍟🍕🥟🍱</p>
+            </section>
+
+            <section>
+                <h3>¿Qué es un morfismo de grupos?</h3>
+                <p>Es una función <strong>\( \varphi: G \to H \)</strong> entre dos grupos que preserva la operación de
+                    grupo:</p>
+                <p class="fragment">\[ \varphi(a \cdot b) = \varphi(a) * \varphi(b) \]</p>
+                <p class="fragment">para todo \(a, b \in G \)</p>
+            </section>
+
+            <section>
+                <iframe width="800" height="450" src="https://www.youtube.com/embed/hCOyM6PiI2M?autoplay=1&mute=1"
+                    title="Video de YouTube" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+            </section>
+
+            <section>
+                <h3>Tipos de Morfismos</h3>
+                <ul>
+                    <li class="fragment"><strong>Monomorfismo</strong>: Inyectivo</li>
+                    <li class="fragment"><strong>Epimorfismo</strong>: Sobreyectivo</li>
+                    <li class="fragment"><strong>Isomorfismo</strong>: Biyectivo</li>
+                </ul>
+            </section>
+
+            <section data-background-gradient="radial-gradient(#fff, #666)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Group_homomorphism_ver.2.svg" />
+            </section>
+
+            <section>
+                <h3>Propiedades</h3>
+                <ul>
+                    <li class="fragment">\( \varphi(e_G) = e_H \)</li>
+                    <li class="fragment">\( \varphi(a^{-1}) = \varphi(a)^{-1} \)</li>
+                </ul>
+            </section>
+
+
+            <section>
+                <h3>Ejemplo</h3>
+                <p>\( \mathbb{Z} \to \mathbb{Z}_6,\ \varphi(n) = n \mod 6 \)</p>
+                <p class="fragment">\( \varphi(a + b) = (a + b) \mod 6 = \varphi(a) + \varphi(b) \)</p>
+                <p class="fragment">\( \Rightarrow \varphi \) es un morfismo</p>
+            </section>
+
+            <section>
+                <h3>Núcleo de un Morfismo</h3>
+                <p>\[ \ker(\varphi) = \{ g \in G \mid \varphi(g) = e_H \} \]</p>
+                <ul>
+                    <li class="fragment">Subgrupo normal de \( G \)</li>
+                    <li class="fragment">Si \( \ker(\varphi) = \{e_G\} \), entonces \( \varphi \) es inyectivo</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Imagen de un Morfismo</h3>
+                <p>\[ \text{Im}(\varphi) = \{ h \in H \mid \exists g \in G,\ \varphi(g) = h \} \]</p>
+                <ul>
+                    <li class="fragment">Subgrupo de \( H \)</li>
+                    <li class="fragment">Si \( \text{Im}(\varphi) = H \), entonces \( \varphi \) es sobreyectivo</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Primer Teorema de Isomorfía</h3>
+                <p>\[ G / \ker(\varphi) \cong \text{Im}(\varphi) \]</p>
+                <p class="fragment">Conecta la estructura de \( G \) con la imagen de \( \varphi \)</p>
+                <p class="fragment">Permite estudiar \( G \) a través de \( \varphi \)</p>
+            </section>
+
+            <section>
+                <h3>Diagrama del Teorema</h3>
+                <p>\[ \begin{array}{ccc}
+                    G & \xrightarrow{\varphi} & H \\
+                    \downarrow & & \uparrow \\
+                    G / \ker(\varphi) & \xrightarrow{\cong} & \text{Im}(\varphi)
+                    \end{array} \]</p>
+                <p class="fragment">Este diagrama ilustra cómo el cociente de \( G \) por su núcleo se relaciona con la
+                    imagen de \( \varphi \)</p>
+            </section>
+
+            <section>
+                <h3>Conclusión</h3>
+                <p>Los morfismos de grupos permiten estudiar la estructura interna de los grupos mediante funciones que
+                    preservan sus propiedades algebraicas.</p>
+                <p class="fragment">Núcleo e imagen son esenciales para entender el comportamiento del morfismo.</p>
+            </section>
+
+            <section>
+                <h3>Muchas gracias</h3>
+                <p class="fragment">Si no entendieron nada nosotros tampoco..</p>
+            </section>
+        </div>
+    </div>
+
+    <script type="module" src="../main.js"></script>
+</body>
+
+</html>

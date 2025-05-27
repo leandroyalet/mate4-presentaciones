@@ -1,0 +1,19 @@
+{
+  "name": "presentaciones",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "highlight.js": "^11.11.1",
+    "reveal.js": "^5.2.1",
+    "sass-embedded": "^1.89.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "vite": "^6.3.5"
+  }
+}

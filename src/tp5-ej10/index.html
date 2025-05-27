@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Grupo Producto</title>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2>Álgebra - Grupos</h2>
+                <p>Vamos a trabajar con el grupo producto</p>
+            </section>
+
+            <section data-background-color="#f6eee3">
+                <p>10. Dados los Grupos \( (G, \ast) \) y \( (F, \diamondsuit) \) se define en el conjunto \(G \times
+                    F\) la ley \(\bullet\) tal que</p>
+                <p style="font-size: 1em">\[ (x, y) \bullet (z, t) = (x \ast z, y \diamondsuit t) \]</p>
+                <p>Probar que \( (G \times F, \bullet)\) es Grupo (<strong>Grupo Producto</strong>)</p>
+            </section>
+
+            <section>
+                <h2>¿Qué es un grupo producto?</h2>
+                <p>Dados dos grupos \( (G, \ast) \) y \( (F, \diamondsuit) \), el producto cartesiano \( G \times F \)
+                    se
+                    convierte en grupo si definimos:</p>
+                <p style="font-size: 1em">\[ (x, y) \bullet (z, t) = (x \ast z, y \diamondsuit t) \]</p>
+                <p class="fragment">Esto se conoce como <strong>grupo producto</strong></p>
+            </section>
+
+            <section data-background-image="/assets/images/explanation.jpg">
+                <h2>Ejemplo</h2>
+                <audio data-autoplay src="/assets/audios/tutorial.mp3"></audio>
+            </section>
+
+            <section data-background-image="/assets/images/ejemplo.jpg">
+            </section>
+
+            <section>
+                <h2>¿Qué queremos probar?</h2>
+                <p>Queremos probar que \( (G \times F, \bullet) \) es un grupo</p>
+                <p class="fragment">Es decir, que cumple:</p>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">Clausura</li>
+                    <li class="fragment">Asociatividad</li>
+                    <li class="fragment">Existe elemento neutro</li>
+                    <li class="fragment">Existe inverso para cada elemento</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Clausura</h2>
+                <p>Sean \((x,y),(z,t) \in G \times F\). Como \(x,z \in G\) y \(y,t \in F\), entonces:</p>
+                <ul>
+                    <li class="fragment">\(x \ast z \in G\) (porque \(G\) es grupo)</li>
+                    <li class="fragment">\(y \diamondsuit t \in F\) (porque \(F\) es grupo)</li>
+                </ul>
+                <p class="fragment">Por lo tanto \((x \ast z,y \diamondsuit t) \in G \times F\)</p>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Asociatividad</h2>
+                    <p>Queremos ver si:</p>
+                    <p>\[ ((x, y) \bullet (z, t)) \bullet (u, v) = (x, y) \bullet ((z, t) \bullet
+                        (u,
+                        v)) \]</p>
+                    <p class="fragment">Evaluamos ambos lados usando la definición de \( \bullet \):</p>
+                    <p class="fragment">\( (x, y) \bullet (z, t) = (x \ast z, y \diamondsuit t) \)</p>
+                </section>
+                <section>
+                    <p>Lado izquierdo</p>
+                    <p class="r-fit-text">\(((x \ast z, y \diamondsuit t) \bullet (u,v)) = ((x \ast z) \ast u,(y
+                        \diamondsuit t)
+                        \diamondsuit v)\)</p>
+                </section>
+                <section>
+                    <p>Lado derecho</p>
+                    <p class="r-fit-text">\((x , y) \bullet ((z \ast u, t \diamondsuit v))=(x \ast (z \ast u), y
+                        \diamondsuit (t \diamondsuit v))\)</p>
+                </section>
+                <section>
+                    <p>Como \(G\) y \(F\) son grupos sus operaciones \( \ast \) y \( \diamondsuit \) son asociativas,
+                        entonces ambos lados coinciden:</p>
+                    <ul>
+                        <li class="fragment">\((x \ast z) \ast u=x \ast (z \ast u)\)</li>
+                        <li class="fragment">\((y \diamondsuit t) \diamondsuit v = y \diamondsuit (t \diamondsuit v)\)
+                        </li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Elemento neutro</h2>
+                    <p>Sabemos que existen:</p>
+                    <ul style="font-size: 0.9em">
+                        <li>\( e_G \in G \) tal que \( e_G \ast x = x \ast e_G = x \)</li>
+                        <li>\( e_F \in F \) tal que \( e_F \diamondsuit y = y \diamondsuit e_F = y \)</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>Definimos entonces el neutro del producto:</p>
+                    <p class="fragment text-sm" style="font-size: 1em">\[ (e_G, e_F) \]</p>
+                </section>
+                <section>
+                    <p>Verificamos:</p>
+                    <p class="fragment">\( (x, y) \bullet (e_G, e_F) = (x \ast e_G, y \diamondsuit e_F) = (x, y) \)</p>
+                    <p class="fragment">\((e_G, e_F) \bullet (x, y) = (e_G \ast x, e_F \diamondsuit y) = (x, y)\)</p>
+                </section>
+            </section>
+
+            <section>
+                <h2>Inverso</h2>
+                <p>Dado \( (x, y) \in G \times F \), existen:</p>
+                <ul style="font-size: 0.9em">
+                    <li>\( x^{-1} \in G \) tal que \( x \ast x^{-1} = e_G \)</li>
+                    <li>\( y^{-1} \in F \) tal que \( y \diamondsuit y^{-1} = e_F \)</li>
+                </ul>
+                <p class="fragment text-sm">Entonces:</p>
+                <p class="fragment text-sm">\[ (x^{-1}, y^{-1}) \text{ es el inverso de } (x, y) \]</p>
+                <p class="fragment text-sm">Porque:</p>
+                <p class="fragment r-fit-text">\( (x, y) \bullet (x^{-1}, y^{-1}) = (x \ast x^{-1}, y \diamondsuit
+                    y^{-1}) = (e_G,
+                    e_F)
+                    \)</p>
+            </section>
+
+            <section>
+                <h2>Conclusión</h2>
+                <p>Se cumplen las cuatro propiedades:</p>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">✅ Clausura</li>
+                    <li class="fragment">✅ Asociatividad</li>
+                    <li class="fragment">✅ Neutro: \( (e_G, e_F) \)</li>
+                    <li class="fragment">✅ Inverso: \( (x^{-1}, y^{-1}) \)</li>
+                </ul>
+                <p class="fragment">Por lo tanto, \( (G \times F, \bullet) \) es un grupo</p>
+            </section>
+
+            <section data-transition="zoom">
+                <h1>Meme forzado</h1>
+                <img src="/assets/images/meme-forzado.jpg" style="width: 50%;" />
+            </section>
+
+            <section>
+                <h1>Muchas \(\bullet\) gracias</h1>
+                <audio data-autoplay src="/assets/audios/closs-final.wav"></audio>
+            </section>
+        </div>
+    </div>
+
+    <script type="module" src="../main.js"></script>
+
+
+
+</body>
+
+</html>

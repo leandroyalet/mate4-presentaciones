@@ -1,0 +1,33 @@
+.cursor-dot,
+.cursor-dot-outline {
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+}
+
+.cursor-dot {
+  width: 15px;
+  height: 15px;
+  background-color: rgba(255, 0, 0, 0.8);
+  box-shadow: 0 0 10px #ff0000;
+  z-index: 1;
+}
+
+.cursor-dot.hidden {
+  display: none;
+}
+
+.text-sm {
+  font-size: 0.5em;
+}
+
+.text-xs {
+  font-size: 0.3em;
+}
+
+.text-gray {
+  color: #444 !important;
+}

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Relaciones en conjuntos</title>
+    <link rel="stylesheet" href="./cronica.scss" />
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2>Relaciones entre conjuntos</h2>
+                <p>Menú del día: clases de equivalencia, congruencias y allegados</p>
+                <p>$$ Bonoris \equiv Yalet \, (\text{mod } 5)$$</p>
+            </section>
+
+            <section data-background-color="rgb(136, 31, 24)" class="cronica">
+                <audio id="audio" data-autoplay>
+                    <source src="/assets/audios/cronica-ultimo-momento.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+
+                <div class="brand">
+                    <div class="left">
+                        <div>
+                            <div class="time">22:27</div>
+                            <div class="temp">15.2°</div>
+                        </div>
+                        <div class="date">10 MAY</div>
+                    </div>
+                    <div class="right">
+                        <svg class="logo" width="40.478" height="34.388" viewBox="0 0 40.513 32.356">
+                            <path fill="white"
+                                d="M25.756-1.028c-1.7-.029-3.403.143-5.11.514C12.014 1.24 5.588 8.532 2.713 12.885c-2.566 3.857-4.09 11.134-.958 15.189 2.447 3.142 6.312 5.307 12.313 5.309 1.8.03 3.702-.137 5.51-.506 8.142-1.433 16.658-9.554 20.935-14.147v-6.531c-1.515 1.243-2.928 2.372-6.369 5.22-7.303 5.978-14.331 7.56-18.033 7.597a8.334 8.334 0 0 1-2.195-.338c-2.186-.837-5.725-4.599-2.708-11.45 3.018-6.85 10.263-9.327 12.775-9.984.402-.094.904-.185 1.404-.176 2.2.037 4.677 1.38 4.533 3.978-.034 2-2.463 3.658-2.565 3.757-.505.291-1.007.383-1.607.373-.094-.302-.088-.703-.28-1.206-.482-1.008-1.47-1.726-2.671-1.646l-.7-.012c-1.6-.027-3.212.647-4.234 1.93-1.017.983-1.344 2.477-.968 3.884.283 1.005 1.955 2.735 5.055 2.788 2.7.045 5.308-.41 9.778-4.436 3.043-2.449 3.915-6.736 2.074-10.269-.878-1.315-3.144-3.253-8.046-3.237z" />
+                        </svg>
+                    </div>
+                </div>
+                <h1>Último momento</h1>
+                <h1>Ya explicaron todo</h1>
+                <h1 class="fragment">Mentira!</h1>
+            </section>
+
+            <section>
+                <h2>Relación de equivalencia</h2>
+                <p>Una relación R sobre un conjunto A es de equivalencia si cumple:</p>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">Reflexividad: ∀a ∈ A, (a, a) ∈ R</li>
+                    <li class="fragment">Simetría: (a, b) ∈ R ⇒ (b, a) ∈ R</li>
+                    <li class="fragment">Transitividad: (a, b) ∈ R ∧ (b, c) ∈ R ⇒ (a, c) ∈ R</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Clases de equivalencia</h2>
+                <p>Dada una relación de equivalencia R en A, la clase de equivalencia de un elemento a ∈ A es:</p>
+                <p style="font-size: 0.95em">$$ \bar{a} = \{ x \in A \mid (a,x) \in R \} $$</p>
+                <p class="fragment">Todos los elementos que están relacionados con a por medio de R</p>
+            </section>
+
+            <section>
+                <h2>Representantes</h2>
+                <img src="/assets/images/guillermo-coppola-diego-maradona.jpg_1103262657.webp" />
+            </section>
+
+            <section>
+                <h2>Representantes</h2>
+                <p>Un representante de una clase de equivalencia es simplemente un elemento cualquiera de la clase.</p>
+                <p class="fragment">Toda clase tiene infinitos representantes, todos equivalentes entre sí.</p>
+                <p class="fragment">a es un representante, ya que R cumple con la reflexividad</p>
+            </section>
+
+            <section>
+                <img src="/assets/images/chocotorta.webp" />
+            </section>
+
+
+            <section>
+                <h2>Ejemplo 1</h2>
+                <p>Sea A el conjunto de rectas del plano. Definimos R por:</p>
+                <p>$$ a \sim b \iff a \text{ es paralela a } b $$</p>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">Reflexiva: toda recta es paralela a sí misma</li>
+                    <li class="fragment">Simétrica: si a es paralela a b, entonces b es paralela a a</li>
+                    <li class="fragment">Transitiva: si <b>a || b</b> y <b>b || c</b>, entonces <b>a || c</b>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Ejemplo 2</h2>
+                <p>Sea A el conjunto de rectas. Definimos:</p>
+                <p>$$ a \sim b \iff a \text{ es perpendicular a } b $$</p>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">No es reflexiva: ninguna recta es perpendicular a sí misma</li>
+                    <li class="fragment">No es transitiva: si a ⟂ b y b ⟂ c, a es paralela a c</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Particiones</h2>
+                <p>Una <strong>partición</strong> de un conjunto A es una colección de subconjuntos no vacíos, disjuntos
+                    entre sí y cuya unión es A.</p>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">Cada clase de equivalencia genera una partición</li>
+                    <li class="fragment">Y cada relación de equivalencia define una partición</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Relaciones de congruencia</h2>
+                <p>Relaciones de equivalencia sobre estructuras con operaciones (como ℤ, ℕ, etc.)</p>
+                <p class="fragment">Por ejemplo: $$ a \equiv b \, (\text{mod } n) \iff n \mid (a - b) $$</p>
+                <p class="fragment">Particionan ℤ en clases de residuos</p>
+            </section>
+
+            <section>
+                <h2>Conjunto cociente</h2>
+                <p>Si R es una relación de equivalencia sobre A, el conjunto cociente se define como:</p>
+                <p style="font-size: 0.95em">$$ A / R = \{ \bar{a} \mid a \in A \} $$</p>
+                <p class="fragment">Es el conjunto de todas las clases de equivalencia</p>
+            </section>
+
+            <section>
+                <h3>Relación de congruencia</h3>
+                <section>
+                    <div>
+                        <strong>Definición:</strong>
+                        <em>Dados los enteros</em> \(a\), \(b\) <em>y</em> \(m\), <em>se dice que</em> \(a\) <em>es
+                            congruente con</em>
+                        \(b\) <em>módulo</em> \(m\)
+                        <em>y se escribe</em> \(a \equiv b \pmod{m}\) <em>(ó</em> \(a \equiv_m b\) <em>ó</em> \(a \equiv
+                        b (m)\)<em>) si y
+                            sólo si</em> \(m \mid (a - b)\),
+                        <em>es decir, existe</em> \(k \in \mathbb{Z}\) <em>tal que</em> \(a - b = k \cdot m\).
+                    </div>
+                </section>
+                <section>
+                    <p>La congruencia <em>módulo m</em> es una forma de decir que dos números dejan el mismo residuo
+                        (resto) al
+                        dividirse por un número
+                        entero <em>m</em></p>
+                </section>
+
+                <section>
+                    <p>Propiedades: es reflexiva</p>
+                    <p class="fragment">\( \equiv_m \) es reflexiva ya que para \( a \) entero vale que \( m
+                        \mid a - a \), pues \( a - a = 0 \cdot m \)</p>
+                </section>
+
+                <section>
+                    <p>Propiedades: es simétrica</p>
+                    <p class="fragment">supongamos que \( a \equiv_m b \), entonces \( m \) divide a \( a -
+                        b \) y existe \( k \) entero
+                        tal que \( a - b = k \cdot m \),
+                        luego existe \( -k \) tal que \( b - a = -(a - b) = -(k \cdot m) = (-k) \cdot m \), y por lo
+                        tanto \( m \mid b - a \) y \( b \equiv_m a \)</p>
+                </section>
+
+                <section>
+                    <p>Propiedades: \( \equiv_m \) es transitiva: esto es, si \( a \equiv_m b \) y \( b \equiv_m c \)
+                        entonces \( a \equiv_m c \)</p>
+                    <p class="fragment">Supongamos que \( a \equiv_m b \), entonces \( m \mid a - b \), existe \( k \)
+                        entero tal que \( a - b = k m \),<br>
+                        por otro lado \( b \equiv_m c \), entonces \( m \mid b - c \), existe \( h \) entero tal que \(
+                        b - c = h m \),</p>
+                </section>
+
+                <section>
+                    <p style="opacity: 0.5;">Propiedades: \( \equiv_m \) es transitiva: esto es, si \( a \equiv_m b \) y
+                        \( b \equiv_m c \)
+                        entonces \( a \equiv_m c \)</p>
+                    <p class="fragment">
+                        luego: \( a - c = (a - b) + (b - c) = k m + h m = (k + h) m \),<br>
+                        y existe un entero \( t = k + h \) tal que \( a - c = t m \), y así \( m \) divide a \( a - c
+                        \), de esa forma tenemos
+                        que \( a \equiv_m c \) como queríamos probar</p>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Ejemplo</h2>
+                    <p>\(4 \equiv_3 10\)</p>
+                    <p class="fragment">
+                        \( 4 \equiv 10 \pmod{3} \), pues \( 3∣4 - 10 \), ya que existe \( -2 \) tal que \( 4 - 10 = -6 =
+                        -2 \cdot 3 \)
+                    </p>
+                    <p class="fragment">
+                        \( 4 \equiv 10 \pmod{3} \), ya que \( 10 - 4 = 6 \), y \( 6 \) es divisible por \( 3 \)
+                    </p>
+                </section>
+                <section>
+                    <h2>Ejemplo</h2>
+                    <p>Facilito:</p>
+                    <p class="fragment">\( 12345678987654321 \equiv 923456781 \equiv 12345678 \equiv 123456789987654321
+                        \equiv 123456789123456789
+                        \pmod{9} \)</p>
+                    <p class="fragment">¿Cómo lo sabemos? Porque los dígitos de esos números suman 81, 45, 36, 90 y 90,
+                        que
+                        son divisibles por 9</p>
+                    <p class="fragment">
+                        Obvio ¿no? 😄
+                    </p>
+                </section>
+                <section>
+                    <h2>Ejemplo</h2>
+                    <p>Imaginemos un reloj analógico de 12 horas ⏰</p>
+                    <p class="fragment">En este reloj después de la hora 12 volvemos a la 1, 2, 3, etc.</p>
+                    <p class="fragment">Que es exactamente lo mismo que trabajar con módulo 12.</p>
+                </section>
+                <section>
+                    <h2>Ejemplo</h2>
+                    <p>Supongamos que son las 9 en punto, si pasan 7 horas ¿qué hora será?</p>
+                    <p class="fragment">9 + 7 = 16 pero en el reloj eso es 4</p>
+                    <p class="fragment">(porque 16 - 12 = 4)</p>
+                </section>
+                <section>
+                    <h2>Ejemplo</h2>
+                    <video data-autoplay>
+                        <source src="/assets/videos/RelojCongruencia.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </section>
+                <section>
+                    <h3>Clases de equivalencia en el reloj</h3>
+                    <p>Cada número del reloj representa una clase de equivalencia módulo 12</p>
+                    <p>Por ejemplo la clase [4] incluye todos los números que al dividirse por 12 dan residuo 4:</p>
+                    <p>[4] = {..., -20, -8, 4, 16, 28, 40, ...}</p>
+                </section>
+            </section>
+            <section>
+                <h1>Gracias</h1>
+                <audio data-autoplay src="/assets/audios/closs-final.wav"></audio>
+            </section>
+        </div>
+    </div>
+
+    <script type="module" src="../main.js"></script>
+
+    <script>
+        function actualizarHora() {
+            const ahora = new Date();
+            const horas = ahora.getHours().toString().padStart(2, '0');
+            const minutos = ahora.getMinutes().toString().padStart(2, '0');
+            const horaFormateada = `${horas}:${minutos}`;
+
+            const elementoHora = document.querySelector('.brand .time');
+            if (elementoHora) {
+                elementoHora.textContent = horaFormateada;
+            }
+        }
+
+        actualizarHora();
+        setInterval(actualizarHora, 60000); // Actualiza cada minuto
+    </script>
+    <script>
+        const diasSemana = ['DOM', 'LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SAB'];
+        const meses = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
+
+        function obtenerFormatosFecha() {
+            const hoy = new Date();
+            const dia = hoy.getDate().toString().padStart(2, '0');
+            const mes = meses[hoy.getMonth()];
+            const diaSemana = diasSemana[hoy.getDay()];
+
+            return [`${dia} ${mes}`, `${diaSemana} ${dia}`];
+        }
+
+        const spanFecha = document.querySelector('.brand .date');
+        const [formato1, formato2] = obtenerFormatosFecha();
+        let mostrarPrimero = true;
+
+        function alternarFecha() {
+            if (spanFecha) {
+                spanFecha.textContent = mostrarPrimero ? formato1 : formato2;
+                mostrarPrimero = !mostrarPrimero;
+            }
+        }
+
+        alternarFecha(); // mostrar inmediatamente
+        setInterval(alternarFecha, 2000); // alternar cada 2 segundos
+    </script>
+
+</body>
+
+</html>
