@@ -24,12 +24,6 @@
             </section>
 
             <section>
-                <iframe width="800" height="450" src="https://www.youtube.com/embed/hCOyM6PiI2M?autoplay=1&mute=1"
-                    title="Video de YouTube" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-                </iframe>
-            </section>
-
-            <section>
                 <h3>Tipos de Morfismos</h3>
                 <ul>
                     <li class="fragment"><strong>Monomorfismo</strong>: Inyectivo</li>
@@ -50,7 +44,6 @@
                 </ul>
             </section>
 
-
             <section>
                 <h3>Ejemplo</h3>
                 <p>\( \mathbb{Z} \to \mathbb{Z}_6,\ \varphi(n) = n \mod 6 \)</p>
@@ -59,12 +52,26 @@
             </section>
 
             <section>
-                <h3>Núcleo de un Morfismo</h3>
-                <p>\[ \ker(\varphi) = \{ g \in G \mid \varphi(g) = e_H \} \]</p>
-                <ul>
-                    <li class="fragment">Subgrupo normal de \( G \)</li>
-                    <li class="fragment">Si \( \ker(\varphi) = \{e_G\} \), entonces \( \varphi \) es inyectivo</li>
-                </ul>
+                <section>
+                    <h3>Núcleo de un Morfismo</h3>
+                    <p>\[ \ker(\varphi) = \{ g \in G \mid \varphi(g) = e_H \} \]</p>
+                    <ul>
+                        <li class="fragment">Subgrupo normal de \( G \)</li>
+                        <li class="fragment">Si \( \ker(\varphi) = \{e_G\} \), entonces \( \varphi \) es inyectivo</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Núcleo de un Morfismo</h3>
+                    <ul>
+                        <li>En 🇪🇸 \( Nu(\varphi) \)</li>
+                        <li class="fragment">
+                            En 🇩🇪 \( ker(\varphi) \) de la palabra "kernel" <audio data-autoplay
+                                src="/assets/audios/erika.mp3"></audio>
+                            <img class="r-fit-text"
+                                src="https://fotos.perfil.com/2019/10/22/trim/1280/720/micky-vainilla-22102019-795379.jpg" />
+                        </li>
+                    </ul>
+                </section>
             </section>
 
             <section>
@@ -94,16 +101,35 @@
                     imagen de \( \varphi \)</p>
             </section>
 
+            <section data-background-color="#f6eee3">
+                <h3>Ejercicio</h3>
+                <p>6. Sea \( (G, *) \) un grupo. Demostrar la función</p>
+                <p>\( f : G \to G \) definida por \( f(a) = a^{-1} \)</p>
+                <p>es un <strong>isomorfismo</strong> si y sólo si \( G \) es <strong>abeliano</strong>
+                </p>
+            </section>
+
+            <section>
+                <h3>Solución</h3>
+                <p>\( f(a) = a^{-1} \)</p>
+                <p>\( f \) siempre es biyectiva (involución): \( f(f(a)) = a \)</p>
+                <p>Es morfismo \( \Leftrightarrow f(ab) = f(a)f(b) \)</p>
+                <p>\( f(ab) = (ab)^{-1} = b^{-1}a^{-1} \)</p>
+                <p>\( f(a)f(b) = a^{-1}b^{-1} \)</p>
+                <p>Entonces: \( f(ab) = f(a)f(b) \Leftrightarrow b^{-1}a^{-1} = a^{-1}b^{-1} \)</p>
+                <p>\( \Leftrightarrow G \) es abeliano.</p>
+            </section>
+
             <section>
                 <h3>Conclusión</h3>
                 <p>Los morfismos de grupos permiten estudiar la estructura interna de los grupos mediante funciones que
                     preservan sus propiedades algebraicas.</p>
                 <p class="fragment">Núcleo e imagen son esenciales para entender el comportamiento del morfismo.</p>
+                <p class="fragment">Si no entendieron nada nosotros tampoco..</p>
             </section>
 
             <section>
                 <h3>Muchas gracias</h3>
-                <p class="fragment">Si no entendieron nada nosotros tampoco..</p>
             </section>
         </div>
     </div>
