@@ -2,6 +2,7 @@ import Reveal from "reveal.js";
 import RevealHighlight from "reveal.js/plugin/highlight/highlight.esm.js";
 import RevealMarkdown from "reveal.js/plugin/markdown/markdown.esm.js";
 import RevealMath from "reveal.js/plugin/math/math.esm.js";
+import RevealConfetti from "./RevealConfetti";
 import RevealSegmentedVideo from "./RevealSegmentedVideo";
 import toasty from "./toasty";
 
@@ -17,6 +18,7 @@ const deck = new Reveal({
     RevealMarkdown,
     RevealHighlight,
     RevealSegmentedVideo,
+    RevealConfetti,
     toasty,
   ],
 });
