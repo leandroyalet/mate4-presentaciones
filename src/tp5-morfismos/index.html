@@ -15,6 +15,8 @@
                 <p>🍔🍟🍕🥟🍱</p>
             </section>
 
+            <!-- REPASO -->
+
             <section>
                 <h3>¿Qué es un morfismo de grupos?</h3>
                 <p>Es una función <strong>\( \varphi: G \to H \)</strong> entre dos grupos que preserva la operación de
@@ -32,10 +34,6 @@
                 </ul>
             </section>
 
-            <section data-background-gradient="radial-gradient(#fff, #666)">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Group_homomorphism_ver.2.svg" />
-            </section>
-
             <section>
                 <h3>Propiedades</h3>
                 <ul>
@@ -49,7 +47,7 @@
                     <h3>Núcleo de un Morfismo</h3>
                     <p>\[ \ker(\varphi) = \{ g \in G \mid \varphi(g) = e_H \} \]</p>
                     <ul>
-                        <li class="fragment">Subgrupo normal de \( G \)</li>
+                        <li class="fragment">Subgrupo de \( G \)</li>
                         <li class="fragment">Si \( \ker(\varphi) = \{e_G\} \), entonces \( \varphi \) es inyectivo</li>
                     </ul>
                 </section>
@@ -76,19 +74,10 @@
                 </ul>
             </section>
 
-            <section>
-                <h3>Diagrama del teorema</h3>
-                <p>\[ \begin{array}{ccc}
-                    G & \xrightarrow{\varphi} & H \\
-                    \downarrow & & \uparrow \\
-                    G / \ker(\varphi) & \xrightarrow{\cong} & \text{Im}(\varphi)
-                    \end{array} \]</p>
-                <p class="fragment">Este diagrama ilustra cómo el cociente de \( G \) por su núcleo se relaciona con la
-                    imagen de \( \varphi \)</p>
-            </section>
+            <!-- EJEMPLO RSA -->
 
             <section>
-                <h2>RSA y morfismos de grupos</h2>
+                <h2>Ejemplo: RSA y morfismos</h2>
                 <p>La función de cifrado RSA es un morfismo sobre el grupo \( \mathbb{Z}_n^* \)</p>
             </section>
 
@@ -119,6 +108,8 @@
                 </ul>
             </section>
 
+            <!-- EJERCICIO -->
+
             <section data-background-color="#f6eee3">
                 <h3>Ejercicio</h3>
                 <p>6. Sea \( (G, *) \) un grupo. Demostrar la función</p>
@@ -128,21 +119,77 @@
             </section>
 
             <section>
-                <h3>Solución</h3>
-                <p>\( f(a) = a^{-1} \)</p>
-                <p class="fragment">\( f \) siempre es biyectiva: \( f(f(a)) = a \)</p>
-                <p class="fragment">Es morfismo \( \Leftrightarrow f(ab) = f(a)f(b) \)</p>
-                <p class="fragment">\( f(ab) = (ab)^{-1} = b^{-1}a^{-1} \)</p>
-                <p class="fragment">\( f(a)f(b) = a^{-1}b^{-1} \)</p>
-                <p class="fragment">Entonces: \( f(ab) = f(a)f(b) \Leftrightarrow b^{-1}a^{-1} = a^{-1}b^{-1} \)</p>
-                <p class="fragment">\( \Leftrightarrow G \) es abeliano</p>
+                <h2>0. ¿Qué necesitamos probar?</h2>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">\( f(a) = a^{-1} \)</li>
+                    <li class="fragment">\( f \) es un isomorfismo ⟺ \( G \) es abeliano</li>
+                    <li class="fragment">Isomorfismo = morfismo + biyectiva</li>
+                </ul>
             </section>
+            
+            <section>
+                <h2>1. Si f es isomorfismo ⇒ G es abeliano</h2>
+                <p>Queremos deducir: \( a * b = b * a \)</p>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">Usamos: \( f \text{ es morfismo} \Rightarrow f(ab) = f(a)f(b) \)</li>
+                    <li class="fragment">Pero: \( f(ab) = (ab)^{-1} = b^{-1}a^{-1} \)</li>
+                    <li class="fragment">Y \( f(a)f(b) = a^{-1}b^{-1} \)</li>
+                    <li class="fragment">Entonces: \( b^{-1}a^{-1} = a^{-1}b^{-1} \Rightarrow \text{los inversos conmutan} \)</li>
+                    <li class="fragment">⇒ \( G \) es abeliano</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>2. Si G es abeliano ⇒ f es morfismo</h2>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">Queremos: \( f(ab) = f(a)f(b) \)</li>
+                    <li class="fragment">Sabemos: \( f(ab) = (ab)^{-1} \)</li>
+                    <li class="fragment">Y en todo grupo: \( (ab)^{-1} = b^{-1}a^{-1} \)</li>
+                    <li class="fragment">Si \( G \) es abeliano ⇒ \( b^{-1}a^{-1} = a^{-1}b^{-1} \)</li>
+                    <li class="fragment">Entonces: \( f(ab) = a^{-1}b^{-1} = f(a)f(b) \)</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>3. Si G es abeliano ⇒ f es inyectiva</h2>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">Supongamos \( f(a) = f(b) \Rightarrow a^{-1} = b^{-1} \)</li>
+                    <li class="fragment">Entonces \( a = b \) (porque los inversos son únicos)</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>4. Si G es abeliano ⇒ f es sobreyectiva</h2>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">Dado \( y \in G \), tomamos \( x = y^{-1} \in G \)</li>
+                    <li class="fragment">Entonces \( f(x) = x^{-1} = (y^{-1})^{-1} = y \)</li>
+                    <li class="fragment">⇒ f es sobreyectiva</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>5. Conclusión final</h2>
+                <ul style="font-size: 0.9em">
+                    <li class="fragment">Si \( f(a) = a^{-1} \) es isomorfismo ⇒ \( G \) es abeliano</li>
+                    <li class="fragment">Si \( G \) es abeliano ⇒ \( f \) es isomorfismo</li>
+                    <li class="fragment">Por lo tanto: \( f \text{ es isomorfismo} \iff G \text{ es abeliano} \)</li>
+                </ul>
+            </section>
+
+            <!-- CONCLUSION -->
 
             <section>
                 <h3>Conclusión</h3>
-                <p>Los morfismos de grupos permiten estudiar la estructura interna de los grupos mediante funciones que
-                    preservan sus propiedades algebraicas.</p>
+                <p>Los morfismos de grupos permiten estudiar la estructura interna de los grupos mediante funciones que preservan sus propiedades algebraicas.</p>
                 <p class="fragment">Núcleo e imagen son esenciales para entender el comportamiento del morfismo.</p>
+                <p>Los morfismos de grupos son abstracciones útiles en distintos campos de la ciencia, permitiendo:</p>
+                <ul >
+                    <li class="fragment">Conectar estructuras</li>
+                    <li class="fragment">Comparar comportamientos</li>
+                    <li class="fragment">Simplificar cálculos</li>
+                    <li class="fragment">Estudiar simetrías</li>
+                    <li class="fragment">Construir herramientas prácticas</li>
+                </ul>
             </section>
 
             <section>
