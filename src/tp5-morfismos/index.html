@@ -119,11 +119,12 @@
             </section>
 
             <section>
-                <h2>0. ¿Qué necesitamos probar?</h2>
+                <h2>¿Qué necesitamos probar?</h2>
                 <ul style="font-size: 0.9em">
                     <li class="fragment">\( f(a) = a^{-1} \)</li>
                     <li class="fragment">\( f \) es un isomorfismo ⟺ \( G \) es abeliano</li>
                     <li class="fragment">Isomorfismo = morfismo + biyectiva</li>
+                    <li class="fragment">Biyectiva = inyectiva + sobreyectiva</li>
                 </ul>
             </section>
             
@@ -131,48 +132,67 @@
                 <h2>1. Si f es isomorfismo ⇒ G es abeliano</h2>
                 <p>Queremos deducir: \( a * b = b * a \)</p>
                 <ul style="font-size: 0.9em">
-                    <li class="fragment">Usamos: \( f \text{ es morfismo} \Rightarrow f(ab) = f(a)f(b) \)</li>
-                    <li class="fragment">Pero: \( f(ab) = (ab)^{-1} = b^{-1}a^{-1} \)</li>
-                    <li class="fragment">Y \( f(a)f(b) = a^{-1}b^{-1} \)</li>
-                    <li class="fragment">Entonces: \( b^{-1}a^{-1} = a^{-1}b^{-1} \Rightarrow \text{los inversos conmutan} \)</li>
-                    <li class="fragment">⇒ \( G \) es abeliano</li>
+                    <li class="fragment">\( f \text{ es morfismo} \Rightarrow f(ab) = f(a)f(b) = a^{-1}b^{-1} \)</li>
+                    <li class="fragment">Por definición: \( (ab)^{-1} = b^{-1}a^{-1} \)</li>
+                    <li class="fragment">Por biyectividad existe \( f^{-1} \) (inverso del inverso)</li>
                 </ul>
+            </section>
+
+            <section>
+                <h2>f es isomorfismo ⇒ G es abeliano ✅</h2>
             </section>
             
             <section>
                 <h2>2. Si G es abeliano ⇒ f es morfismo</h2>
                 <ul style="font-size: 0.9em">
-                    <li class="fragment">Queremos: \( f(ab) = f(a)f(b) \)</li>
-                    <li class="fragment">Sabemos: \( f(ab) = (ab)^{-1} \)</li>
-                    <li class="fragment">Y en todo grupo: \( (ab)^{-1} = b^{-1}a^{-1} \)</li>
-                    <li class="fragment">Si \( G \) es abeliano ⇒ \( b^{-1}a^{-1} = a^{-1}b^{-1} \)</li>
-                    <li class="fragment">Entonces: \( f(ab) = a^{-1}b^{-1} = f(a)f(b) \)</li>
+                    <li class="fragment">Recordamos: \( (ab)^{-1} = b^{-1}a^{-1} \)</li>
+                    <li class="fragment">Conmutatividad implica \( ab = ba \)</li>
+                    <li class="fragment">Entonces: \( f(ab) = (ab)^{-1} = b^{-1}a^{-1} = a^{-1}b^{-1} = f(a)f(b) \)</li>
                 </ul>
+            </section>
+
+            <section>
+                <h2>G es abeliano ⇒ f es morfismo ✅</h2>
             </section>
             
             <section>
                 <h2>3. Si G es abeliano ⇒ f es inyectiva</h2>
                 <ul style="font-size: 0.9em">
-                    <li class="fragment">Supongamos \( f(a) = f(b) \Rightarrow a^{-1} = b^{-1} \)</li>
-                    <li class="fragment">Entonces \( a = b \) (porque los inversos son únicos)</li>
+                    <li class="fragment">\( f(a) = f(b) \Rightarrow a^{-1} = b^{-1} \)</li>
+                    <li class="fragment">Inversos son únicos</li>
+                    <li class="fragment">Entonces \( a = b \)</li>
+                    <li class="fragment">Cada elemento tiene a lo sumo un representante en la imagen</li>
                 </ul>
+            </section>
+
+            <section>
+                <h2>G es abeliano ⇒ f es inyectiva ✅</h2>
             </section>
             
             <section>
                 <h2>4. Si G es abeliano ⇒ f es sobreyectiva</h2>
                 <ul style="font-size: 0.9em">
-                    <li class="fragment">Dado \( y \in G \), tomamos \( x = y^{-1} \in G \)</li>
+                    <li class="fragment">Todo elemento en G tiene su inverso</li>
+                    <!-- para todo y existe x=y^-1 tal que f(x)=x^1=y -->
+                    <li class="fragment">Para todo \( \forall (y \in G) \exists (x = y^{-1}) : f(x) = x^{-1} = y \)</li>
                     <li class="fragment">Entonces \( f(x) = x^{-1} = (y^{-1})^{-1} = y \)</li>
                     <li class="fragment">⇒ f es sobreyectiva</li>
                 </ul>
             </section>
+
+            <section>
+                <h2>G es abeliano ⇒ f es sobreyectiva ✅</h2>
+            </section>
             
             <section>
-                <h2>5. Conclusión final</h2>
+                <h2>5. Conclusión</h2>
                 <ul style="font-size: 0.9em">
                     <li class="fragment">Si \( f(a) = a^{-1} \) es isomorfismo ⇒ \( G \) es abeliano</li>
-                    <li class="fragment">Si \( G \) es abeliano ⇒ \( f \) es isomorfismo</li>
-                    <li class="fragment">Por lo tanto: \( f \text{ es isomorfismo} \iff G \text{ es abeliano} \)</li>
+                    <li class="fragment">Si \( G \) es abeliano ⇒ \( f \) es morfismo</li>
+                    <li class="fragment">Si \( G \) es abeliano ⇒ \( f \) es inyectiva</li>
+                    <li class="fragment">Si \( G \) es abeliano ⇒ \( f \) es sobreyectiva</li>
+                    <li class="fragment">Por lo tanto, Si \( G \) es abeliano ⇒ \( f \) es isomorfismo</li>
+                    <li class="fragment">\( f \text{ es isomorfismo} \iff G \text{ es abeliano} \) ✅</li>
                 </ul>
             </section>
 
@@ -180,10 +200,9 @@
 
             <section>
                 <h3>Conclusión</h3>
-                <p>Los morfismos de grupos permiten estudiar la estructura interna de los grupos mediante funciones que preservan sus propiedades algebraicas.</p>
-                <p class="fragment">Núcleo e imagen son esenciales para entender el comportamiento del morfismo.</p>
-                <p>Los morfismos de grupos son abstracciones útiles en distintos campos de la ciencia, permitiendo:</p>
-                <ul >
+                <p class="fragment">Los morfismos de grupos permiten estudiar la estructura interna de los grupos mediante funciones que preservan sus propiedades algebraicas.</p>
+                <p class="fragment">Son abstracciones útiles en distintos campos de la ciencia, permitiendo:</p>
+                <ul>
                     <li class="fragment">Conectar estructuras</li>
                     <li class="fragment">Comparar comportamientos</li>
                     <li class="fragment">Simplificar cálculos</li>
@@ -191,6 +210,8 @@
                     <li class="fragment">Construir herramientas prácticas</li>
                 </ul>
             </section>
+
+            <!-- SALUDO -->
 
             <section>
                 <h3>Muchas gracias</h3>
