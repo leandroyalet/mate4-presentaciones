@@ -68,35 +68,100 @@
             <!-- EJEMPLO RSA -->
 
             <section>
-                <h2>Ejemplo: RSA y morfismos</h2>
-                <p>La función de cifrado RSA es un morfismo sobre el grupo \( \mathbb{Z}_n^* \)</p>
+                <section data-background-color="white">
+                    <h2>RSA y morfismos de grupos</h2>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/RSA_Security_logo.svg" />
+                </section>
+                <section data-transition="zoom">
+                    <p>La función de cifrado RSA es un morfismo sobre el grupo \( \mathbb{Z}_n^* \)</p>
+                    <i class="fragment">puff... claro!</i>
+                </section>
+            </section>
+
+            <section data-background-color="#f6eee3">
+                <h2>RSA: repaso del algoritmo</h2>
+                <section>
+                    <img style="max-width: 90%; padding-top: 2em;" src="/assets/images/rsa-encrypt-decrypt.avif" />
+                </section>
+                <section>
+                    <p>Generación de las claves pública y privada</p>
+                    <p>🔑🗝️</p>
+                    <img class="r-fit-text" src="/assets/images/rsa-keys.avif" />
+                </section>
+                <section>
+                    <p>1. Elegir dos números p y q</p>
+                    <ul>
+                        <li class="fragment">ambos primos</li>
+                        <li class="fragment">muy grandes</li>
+                        <li class="fragment">p ≠ q</li>
+                    </ul>
+                    <p class="fragment">por ejemplo \(p = 2\) y \(q = 7\)</p>
+                </section>
+                <section>
+                    <p>2. Calcular \(n\)</p>
+                    <p>Multiplicar p y q, eso se vuelve el módulo \(n\):</p>
+                    <p class="fragment">\(n = p * q = 14\)</p>
+                    <i class="fragment r-fit-text">Si bien es fácil de calcular, resulta prácticamente imposible estimar
+                        qué
+                        números se multiplicaron para obtener el
+                        producto.</i>
+                </section>
+                <section>
+                    <p>3. Generar la clave pública \(e\)</p>
+                    <p>Utilizando la función totiente (función de Euler)</p>
+                    <p class="fragment">\(\varphi(n) = (p-1)(q-1)\)</p>
+                    <p class="fragment">\(\varphi(n) = (2-1)(7-1) = 6\)</p>
+                </section>
+                <section>
+                    <p>Hacer una lista del 1 al 14 y eliminando los factores comunes:</p>
+                    <img style="max-width: 50%; margin-top: 2em;" src="/assets/images/totient-example.avif" />
+                </section>
+                <section>
+                    <p>Luego elegir \(e\): un entero arbitrario mayor que 1, pero menor que \(\phi\) y primo relativo a
+                        él.
+                    </p>
+                    <p>\(mcd(\phi(n), e) = 1; 1 \lt e \lt \phi(n)\)</p>
+                    <i class="fragment">Generalmente, se usa 65.537 como \(e\) en el cifrado RSA.</i>
+                </section>
+                <section>
+                    <p>4. Generar la clave privada \(d\)</p>
+                    <p>Calcular el inverso modular \(d\) tal que:</p>
+                    <p class="fragment">\(e \cdot d \equiv 1 \mod \varphi(n)\)</p>
+                </section>
+
+                <section>
+                    <p style="padding-top: 2em;">5. Encriptar y desencriptar</p>
+                    <ul>
+                        <li>\( m \in \mathbb{Z}_n^* \)</li>
+                        <li>Para encriptar: \(c \equiv m^e \mod n\)</li>
+                        <li>Para desencriptar: \(m \equiv c^d \mod n\)</li>
+                    </ul>
+                    <img style="max-width: 50%;" src="/assets/images/rsa-encrypt-decrypt.avif" />
+                </section>
             </section>
 
             <section>
-                <h2>Recordamos el esquema RSA</h2>
-                <ul>
-                    <li>\( m \in \mathbb{Z}_n^* \)</li>
-                    <li>\( c = m^e \mod n \)</li>
-                    <li>\( m = c^d \mod n \)</li>
-                    <li>\( ed \equiv 1 \mod \varphi(n) \)</li>
-                </ul>
-            </section>
+                <section>
+                    <h2>¿Por qué es un morfismo?</h2>
+                    <p>La función:</p>
+                    <p>\[ f(x) = x^e \mod n \]</p>
+                    <p class="fragment">es un <strong>morfismo de grupos</strong> porque:</p>
+                    <p class="fragment">\[ f(xy) = (xy)^e \equiv x^e y^e = f(x) f(y) \mod n \]</p>
+                </section>
 
-            <section>
-                <h2>¿Por qué es un morfismo?</h2>
-                <p>La función:</p>
-                <p>\[ f(x) = x^e \text{(mod n)} \]</p>
-                <p class="fragment">es un <strong>morfismo de grupos</strong> porque:</p>
-                <p class="fragment">\[ f(xy) = (xy)^e \equiv x^e y^e = f(x) f(y) \text{(mod n)} \]</p>
-            </section>
+                <section>
+                    <h2>¿Para qué sirve esto?</h2>
+                    <ul style="font-size: 0.95em">
+                        <li class="fragment">Preserva la multiplicación ⇒ estructura de grupo conservada</li>
+                        <li class="fragment">Permite operaciones sobre datos cifrados (homomorfismo)</li>
+                        <li class="fragment">Base para firmas, verificaciones y computación segura</li>
+                    </ul>
+                </section>
 
-            <section>
-                <h2>¿Para qué sirve esto?</h2>
-                <ul style="font-size: 0.95em">
-                    <li class="fragment">Preserva la multiplicación ⇒ estructura de grupo conservada</li>
-                    <li class="fragment">Permite operaciones sobre datos cifrados (homomorfismo)</li>
-                    <li class="fragment">Base para firmas, verificaciones y computación segura</li>
-                </ul>
+                <section data-background-color="white">
+                    <img src="https://imgs.xkcd.com/comics/security.png" />
+                </section>
+
             </section>
 
             <!-- EJERCICIO -->
@@ -118,7 +183,7 @@
                     <li class="fragment">Biyectiva = inyectiva + sobreyectiva</li>
                 </ul>
             </section>
-            
+
             <section>
                 <h2>1. Si f es isomorfismo ⇒ G es abeliano</h2>
                 <p>Queremos deducir: \( a * b = b * a \)</p>
@@ -132,7 +197,7 @@
             <section>
                 <h2>f es isomorfismo ⇒ G es abeliano ✅</h2>
             </section>
-            
+
             <section>
                 <h2>2. Si G es abeliano ⇒ f es morfismo</h2>
                 <ul style="font-size: 0.9em">
@@ -145,7 +210,7 @@
             <section>
                 <h2>G es abeliano ⇒ f es morfismo ✅</h2>
             </section>
-            
+
             <section>
                 <h2>3. Si G es abeliano ⇒ f es inyectiva</h2>
                 <ul style="font-size: 0.9em">
@@ -159,7 +224,7 @@
             <section>
                 <h2>G es abeliano ⇒ f es inyectiva ✅</h2>
             </section>
-            
+
             <section>
                 <h2>4. Si G es abeliano ⇒ f es sobreyectiva</h2>
                 <ul style="font-size: 0.9em">
@@ -174,7 +239,7 @@
             <section>
                 <h2>G es abeliano ⇒ f es sobreyectiva ✅</h2>
             </section>
-            
+
             <section>
                 <h2>5. Conclusión</h2>
                 <ul style="font-size: 0.9em">
@@ -191,7 +256,8 @@
 
             <section>
                 <h3>Cierre 🤐</h3>
-                <p class="fragment">Los morfismos de grupos permiten estudiar la estructura interna de los grupos mediante funciones que preservan sus propiedades algebraicas.</p>
+                <p class="fragment">Los morfismos de grupos permiten estudiar la estructura interna de los grupos
+                    mediante funciones que preservan sus propiedades algebraicas.</p>
             </section>
 
             <section>

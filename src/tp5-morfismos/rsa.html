@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo RSA en JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        textarea,
+        input {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+        }
+
+        .output {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Demostración de RSA en JavaScript</h1>
+    <label>Mensaje a cifrar:</label>
+    <input type="text" id="mensaje" placeholder="Escribe un mensaje...">
+
+    <button onclick="procesar()">Ejecutar RSA</button>
+
+    <div class="output" id="salida"></div>
+
+    <script>
+        function gcd(a, b) {
+            return b === 0 ? a : gcd(b, a % b);
+        }
+
+        function modInverse(e, phi) {
+            let [m0, x0, x1] = [phi, 0, 1];
+            while (e > 1) {
+                let q = Math.floor(e / phi);
+                [e, phi] = [phi, e % phi];
+                [x0, x1] = [x1 - q * x0, x0];
+            }
+            return x1 < 0 ? x1 + m0 : x1;
+        }
+
+        function modPow(base, exp, mod) {
+            let result = 1;
+            base = base % mod;
+            while (exp > 0) {
+                if (exp % 2 === 1) result = (result * base) % mod;
+                exp = Math.floor(exp / 2);
+                base = (base * base) % mod;
+            }
+            return result;
+        }
+
+        // function generateKeys() {
+        //     const p = 61, q = 53;
+        //     const n = p * q;
+        //     const phi = (p - 1) * (q - 1);
+        //     const e = 17;
+        //     const d = modInverse(e, phi);
+        //     return {
+        //         publicKey: { e, n },
+        //         privateKey: { d, n }
+        //     };
+        // }
+
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++)
+                if (num % i === 0) return false;
+            return true;
+        }
+
+        function getRandomPrime(min = 50, max = 100) {
+            let prime;
+            do {
+                prime = Math.floor(Math.random() * (max - min)) + min;
+            } while (!isPrime(prime));
+            return prime;
+        }
+
+        function generateKeys() {
+            let p, q;
+            do {
+                p = getRandomPrime();
+                q = getRandomPrime();
+            } while (p === q);
+
+            const n = p * q;
+            const phi = (p - 1) * (q - 1);
+
+            let e = 3;
+            while (gcd(e, phi) !== 1) e += 2;
+
+            const d = modInverse(e, phi);
+
+            return {
+                publicKey: { e, n },
+                privateKey: { d, n },
+                p, q
+            };
+        }
+
+        function encrypt(message, publicKey) {
+            return message.split('').map(char => {
+                const m = char.charCodeAt(0);
+                return modPow(m, publicKey.e, publicKey.n);
+            });
+        }
+
+        function decrypt(cipherArray, privateKey) {
+            return cipherArray.map(c => {
+                const m = modPow(c, privateKey.d, privateKey.n);
+                return String.fromCharCode(m);
+            }).join('');
+        }
+
+        function procesar() {
+            const mensaje = document.getElementById("mensaje").value;
+            const { publicKey, privateKey, p, q } = generateKeys();
+
+            const cifrado = encrypt(mensaje, publicKey);
+            const descifrado = decrypt(cifrado, privateKey);
+
+            document.getElementById("salida").innerText =
+                `🔑 Clave pública (e, n): (${publicKey.e}, ${publicKey.n})\n` +
+                `🔒 Clave privada (d, n): (${privateKey.d}, ${privateKey.n})\n\n` +
+                `🔮 Números primos (p, q): (${p}, ${q})\n\n` +
+                `📤 Mensaje original: ${mensaje}\n` +
+                `📦 Cifrado: ${cifrado.join(", ")}\n` +
+                `📥 Descifrado: ${descifrado}`;
+        }
+    </script>
+</body>
+
+</html>
