@@ -78,17 +78,17 @@
                 </section>
             </section>
 
-            <section data-background-color="#f6eee3">
-                <h2>RSA: repaso del algoritmo</h2>
-                <section>
-                    <img style="max-width: 90%; padding-top: 2em;" src="/assets/images/rsa-encrypt-decrypt.avif" />
+            <section>
+                <section data-background-color="#f6eee3">
+                    <h2>Repaso del algoritmo de <span style="color: red">RSA</span></h2>
+                    <img src="/assets/images/rsa-encrypt-decrypt.avif" />
                 </section>
-                <section>
+                <section data-background-color="#f6eee3">
                     <p>Generación de las claves pública y privada</p>
                     <p>🔑🗝️</p>
-                    <img class="r-fit-text" src="/assets/images/rsa-keys.avif" />
+                    <img src="/assets/images/rsa-keys.avif" />
                 </section>
-                <section>
+                <section data-background-color="#f6eee3">
                     <p>1. Elegir dos números p y q</p>
                     <ul>
                         <li class="fragment">ambos primos</li>
@@ -97,7 +97,7 @@
                     </ul>
                     <p class="fragment">por ejemplo \(p = 2\) y \(q = 7\)</p>
                 </section>
-                <section>
+                <section data-background-color="#f6eee3">
                     <p>2. Calcular \(n\)</p>
                     <p>Multiplicar p y q, eso se vuelve el módulo \(n\):</p>
                     <p class="fragment">\(n = p * q = 14\)</p>
@@ -106,30 +106,30 @@
                         números se multiplicaron para obtener el
                         producto.</i>
                 </section>
-                <section>
+                <section data-background-color="#f6eee3">
                     <p>3. Generar la clave pública \(e\)</p>
                     <p>Utilizando la función totiente (función de Euler)</p>
                     <p class="fragment">\(\varphi(n) = (p-1)(q-1)\)</p>
                     <p class="fragment">\(\varphi(n) = (2-1)(7-1) = 6\)</p>
                 </section>
-                <section>
+                <section data-background-color="#f6eee3">
                     <p>Hacer una lista del 1 al 14 y eliminando los factores comunes:</p>
                     <img style="max-width: 50%; margin-top: 2em;" src="/assets/images/totient-example.avif" />
                 </section>
-                <section>
+                <section data-background-color="#f6eee3">
                     <p>Luego elegir \(e\): un entero arbitrario mayor que 1, pero menor que \(\phi\) y primo relativo a
                         él.
                     </p>
                     <p>\(mcd(\phi(n), e) = 1; 1 \lt e \lt \phi(n)\)</p>
                     <i class="fragment">Generalmente, se usa 65.537 como \(e\) en el cifrado RSA.</i>
                 </section>
-                <section>
+                <section data-background-color="#f6eee3">
                     <p>4. Generar la clave privada \(d\)</p>
                     <p>Calcular el inverso modular \(d\) tal que:</p>
                     <p class="fragment">\(e \cdot d \equiv 1 \mod \varphi(n)\)</p>
                 </section>
 
-                <section>
+                <section data-background-color="#f6eee3">
                     <p style="padding-top: 2em;">5. Encriptar y desencriptar</p>
                     <ul>
                         <li>\( m \in \mathbb{Z}_n^* \)</li>
@@ -143,10 +143,24 @@
             <section>
                 <section>
                     <h2>¿Por qué es un morfismo?</h2>
-                    <p>La función:</p>
-                    <p>\[ f(x) = x^e \mod n \]</p>
-                    <p class="fragment">es un <strong>morfismo de grupos</strong> porque:</p>
-                    <p class="fragment">\[ f(xy) = (xy)^e \equiv x^e y^e = f(x) f(y) \mod n \]</p>
+                    <div class="fragment">
+                        <p>RSA opera sobre el grupo multiplicativo de enteros módulo \(n\), denotado:</p>
+                        <p>\(\mathbb{Z}_n^* = \{ x \in \mathbb{Z}_n \mid mcd(x, n) = 1 \}\)</p>
+                    </div>
+                    <div class="fragment">
+                        <p>La función: \( f(x) = x^e \mod n \)</p>
+                        <p>es un <strong>morfismo de grupos</strong> porque:</p>
+                        <p>\[ f(xy) = (xy)^e \equiv x^e y^e = f(x) f(y) \mod n \]</p>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Este conjunto, con la multiplicación módulo \(n\), es un grupo <strong>abeliano finito</strong>
+                    </p>
+                    <p>
+                        La función \(f_e(x) = x^e \mod n\) es un <strong>endomorfismo</strong> (morfismo del grupo en sí
+                        mismo) del grupo \(\mathbb{Z}_n^*\) siempre que \(e\) sea coprimo con \(\varphi(n)\)
+                    </p>
                 </section>
 
                 <section>
@@ -160,6 +174,10 @@
 
                 <section data-background-color="white">
                     <img src="https://imgs.xkcd.com/comics/security.png" />
+                </section>
+
+                <section>
+                    <a href="/mate4-presentaciones/rsa.html" target="_blank">Ejemplo de un mini RSA</a>
                 </section>
 
             </section>

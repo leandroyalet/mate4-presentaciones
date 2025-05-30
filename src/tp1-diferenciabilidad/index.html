@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://www.geogebra.org/scripts/deployggb.js"></script>
+    <title>Diferenciabilidad</title>
+    <style>
+        .geogebra-container {
+            width: 90%;
+            height: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Diferenciabilidad</h1>
+            </section>
+
+            <section>
+                <h2>Características de una función diferenciable</h2>
+                <p class="r-fit-text">Para que una función f(x,y) sea diferenciable en un punto de su dominio debe
+                    cumplir lo siguiente:
+                </p>
+                <ul class="r-fit-text">
+                    <li>Debe ser continua en dicho punto.</li>
+                    <li>Debe poder aproximarse localmente por un plano tangente.</li>
+                    <li>Sus derivadas parciales deben existir en el punto y ser continuas en una región alrededor de él
+                        (en la mayoría de los
+                        casos).</li>
+                </ul>
+            </section>
+
+            <section data-background-color="#FFEBCD">
+                <img src="/assets/images/diferenciabilidad-propiedades.png" />
+            </section>
+
+            <section data-background-color="white">
+                <h2>Relación entre diferenciabilidad y continuidad</h2>
+                <ul class="r-fit-text">
+                    <li>Toda función diferenciable es continua.</li>
+                    <li>No toda función continua es diferenciable. La continuidad es una condición necesaria pero no
+                        suficiente.</li>
+                </ul>
+                <img src="/assets/images/differentiable.svg" />
+            </section>
+
+            <section>
+                <h2>Interpretación gráfica de la Diferenciabilidad</h2>
+                <p>Una función diferenciable se puede reconocer gráficamente por las siguientes características:</p>
+                <ul class="r-fit-text">
+                    <li>Superficie suave: sin picos ni esquinas.</li>
+                    <li>Continuidad: no presenta interrupciones ni saltos.</li>
+                    <li>Tangentes bien definidas: sin líneas tangentes verticales (donde la derivada tiende a infinito).
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Situaciones donde una función NO es diferenciable</h2>
+                <ul class="r-fit-text">
+                    <li>Picos o esquinas agudas: en estos puntos, la derivada cambia bruscamente y no está bien
+                        definida.</li>
+                    <li>Discontinuidades: si hay una ruptura en la función, la derivada no puede existir en ese punto
+                    </li>
+                    <li>Tangentes verticales: si en un punto la función tiene una línea tangente vertical la derivada
+                        parcial con respecto a
+                        alguna variable tiende a infinito, lo que impide la diferenciabilidad.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Ejemplos de funciones NO diferenciables en el origen</h2>
+                <div class="geogebra-container">
+                    <div id="fmukfwfu"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Condiciones necesarias para la Diferenciabilidad en un punto
+                </h2>
+                <p class="r-fit-text">Para que una función f(x,y) sea diferenciable en un punto (a,b) debe cumplir:</p>
+                <ul class="r-fit-text">
+                    <li>Debe estar definida en (a,b)</li>
+                    <li>Debe admitir derivada parcial con respecto a x en (a,b)
+                        <div>\(f_x(a,b) = \lim_{h \to 0} \frac{f(a+h,b) - f(a,b)}{h} \)</div>
+                    </li>
+                    <li>Debe admitir derivada parcial con respecto a y en (a,b)
+                        <div>\(f_y(a,b) = \lim_{h \to 0} \frac{f(a,b+h) - f(a,b)}{h}\)</div>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <section data-background-color="white">
+                    <p>\(f(x, y) = \sin(x^2 + y^2)\)</p>
+                    <div class="geogebra-container">
+                        <div id="rbumz583"></div>
+                    </div>
+                </section>
+                <section data-background-color="white">
+                    <p>Derivada parcial con respecto a x:</p>
+                    <p>\(f_x(x, y) = \frac{\partial}{\partial x} \sin(x^2 + y^2)\)</p>
+                    <p>Aplicamos la regla de la cadena:</p>
+                    <p>\(f_x(x, y) = \cos(x^2 + y^2) \cdot 2x\)</p>
+                    <p>De igual forma derivamos respecto a y:</p>
+                    <p>\(f_y(x, y) = \frac{\partial}{\partial y} \sin(x^2 + y^2)\)</p>
+                    <p>\(f_y(x, y) = \cos(x^2 + y^2) \cdot 2y\)</p>
+                </section>
+                <section data-background-color="white">
+                    <p>Evaluamos en el origen</p>
+                    <p>\(f_x(0, 0) = 2(0)\cos(0) = 0\)</p>
+                    <p>\(f_y(0, 0) = 2(0)\cos(0) = 0\)</p>
+                </section>
+
+                <section data-background-color="white">
+                    <p>Verificamos la continuidad de f(x) y de f(y)</p>
+                    <p>\(f_x(x, y) = 2x \cos(x^2 + y^2) \)</p>
+                    <p>\(f_x(x, y) = 2y \cos(x^2 + y^2)\)</p>
+                    <p>Las funciones son continuas en \(\mathbb{R^2}\), ya que son productos de funciones continuas.</p>
+                </section>
+            </section>
+
+            <section data-background-color="white">
+                <p>\(f(x, y) = \sqrt{x^2 + y^2}\)</p>
+                <div class="geogebra-container">
+                    <div id="aghehfyt"></div>
+                </div>
+            </section>
+
+            <section data-background-image="/mate4-presentaciones/assets/images/no-diferenciable-origen.jpg">
+            </section>
+
+            <section data-background-color="#f6eee3">
+                <h2>Conclusión</h2>
+                <i>La diferenciabilidad es una propiedad más fuerte que la continuidad y garantiza que una función pueda
+                    ser aproximada localmente por un <u>plano tangente</u>. Para determinar si una función es
+                    diferenciable en un punto es necesario verificar continuidad, la existencia de derivadas parciales y
+                    su continuidad en una vecindad del punto.</i>
+            </section>
+        </div>
+    </div>
+
+    <script type="module" src="../main.js"></script>
+
+    <section>
+        <script>
+            const baseParams = {
+                scaleContainerClass: "geogebra-container",
+                showToolBar: false,
+                showAlgebraInput: false,
+                enableRightClick: false,
+                showMenuBar: false,
+                scale: 1
+            };
+
+            var params = {
+                ...baseParams,
+                id: "fmukfwfu",
+                appName: "graphing",
+                material_id: "fmukfwfu"
+            };
+            var applet1 = new GGBApplet({
+                ...baseParams,
+                id: "fmukfwfu",
+                appName: "graphing",
+                material_id: "fmukfwfu"
+            }, true);
+            var applet2 = new GGBApplet({
+                ...baseParams,
+                id: "rbumz583",
+                appName: "3d",
+                material_id: "rbumz583"
+            }, true);
+            var applet3 = new GGBApplet({
+                ...baseParams,
+                id: "aghehfyt",
+                appName: "3d",
+                material_id: "aghehfyt"
+            }, true);
+
+            window.addEventListener("load", function () {
+                applet1.inject("fmukfwfu");
+                applet2.inject("rbumz583");
+                applet3.inject("aghehfyt");
+            });
+        </script>
+
+    </section>
+
+</body>
+
+</html>

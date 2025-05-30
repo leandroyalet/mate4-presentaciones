@@ -3,41 +3,62 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Demo RSA en JavaScript</title>
+    <title>Mini RSA</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
         }
 
+        input,
         textarea,
-        input {
+        button {
             width: 100%;
             margin-top: 10px;
+            padding: 8px;
         }
 
         button {
-            margin-top: 10px;
-            padding: 10px 20px;
+            cursor: pointer;
         }
 
         .output {
             margin-top: 20px;
             white-space: pre-wrap;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .clave {
+            font-family: monospace;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Demostración de RSA en JavaScript</h1>
-    <label>Mensaje a cifrar:</label>
+    <h2>🔐 Mini RSA</h2>
+
+    <button onclick="generarClaves()">Generar claves RSA</button>
+
+    <div id="infoClaves" class="output">Claves no generadas aún.</div>
+
+    <label for="mensaje">Mensaje:</label>
     <input type="text" id="mensaje" placeholder="Escribe un mensaje...">
 
-    <button onclick="procesar()">Ejecutar RSA</button>
+    <button onclick="procesar()">Encriptar y Desencriptar</button>
 
-    <div class="output" id="salida"></div>
+    <div id="resultado" class="output"></div>
 
     <script>
+        let publicKey, privateKey, pemPublic, pemPrivate;
+        let n, phi, p, q, e, d;
+
         function gcd(a, b) {
             return b === 0 ? a : gcd(b, a % b);
         }
@@ -63,18 +84,6 @@
             return result;
         }
 
-        // function generateKeys() {
-        //     const p = 61, q = 53;
-        //     const n = p * q;
-        //     const phi = (p - 1) * (q - 1);
-        //     const e = 17;
-        //     const d = modInverse(e, phi);
-        //     return {
-        //         publicKey: { e, n },
-        //         privateKey: { d, n }
-        //     };
-        // }
-
         function isPrime(num) {
             if (num < 2) return false;
             for (let i = 2; i <= Math.sqrt(num); i++)
@@ -90,53 +99,67 @@
             return prime;
         }
 
-        function generateKeys() {
-            let p, q;
+        function toFakeBase64(obj) {
+            return btoa(JSON.stringify(obj))
+                .match(/.{1,64}/g)
+                .join("\n");
+        }
+
+        function generarClaves() {
             do {
                 p = getRandomPrime();
                 q = getRandomPrime();
             } while (p === q);
 
-            const n = p * q;
-            const phi = (p - 1) * (q - 1);
+            n = p * q;
+            phi = (p - 1) * (q - 1);
 
-            let e = 3;
+            e = 3;
             while (gcd(e, phi) !== 1) e += 2;
 
-            const d = modInverse(e, phi);
+            d = modInverse(e, phi);
 
-            return {
-                publicKey: { e, n },
-                privateKey: { d, n },
-                p, q
-            };
+            publicKey = { e, n };
+            privateKey = { d, n };
+
+            pemPublic = `-----BEGIN RSA PUBLIC KEY-----\n${toFakeBase64(publicKey)}\n-----END RSA PUBLIC KEY-----`;
+            pemPrivate = `-----BEGIN RSA PRIVATE KEY-----\n${toFakeBase64(privateKey)}\n-----END RSA PRIVATE KEY-----`;
+
+            document.getElementById("infoClaves").innerHTML =
+                `📌 Valores intermedios:\n` +
+                `  • p = ${p}\n  • q = ${q}\n  • n = p × q = ${n}\n  • φ(n) = (p-1)(q-1) = ${phi}\n\n` +
+                `🔑 Clave pública (e, n): (${e}, ${n})\n` +
+                `🔒 Clave privada (d, n): (${d}, ${n})\n\n` +
+                `<strong>📄 Clave pública en formato PEM:</strong>\n<div class="clave">${pemPublic}</div>\n\n` +
+                `<strong>📄 Clave privada en formato PEM:</strong>\n<div class="clave">${pemPrivate}</div>`;
         }
 
-        function encrypt(message, publicKey) {
+        function encrypt(message, pubKey) {
             return message.split('').map(char => {
                 const m = char.charCodeAt(0);
-                return modPow(m, publicKey.e, publicKey.n);
+                return modPow(m, pubKey.e, pubKey.n);
             });
         }
 
-        function decrypt(cipherArray, privateKey) {
+        function decrypt(cipherArray, privKey) {
             return cipherArray.map(c => {
-                const m = modPow(c, privateKey.d, privateKey.n);
+                const m = modPow(c, privKey.d, privKey.n);
                 return String.fromCharCode(m);
             }).join('');
         }
 
         function procesar() {
             const mensaje = document.getElementById("mensaje").value;
-            const { publicKey, privateKey, p, q } = generateKeys();
+
+            if (!publicKey || !privateKey) {
+                alert("¡Primero debes generar las claves RSA!");
+                return;
+            }
 
             const cifrado = encrypt(mensaje, publicKey);
             const descifrado = decrypt(cifrado, privateKey);
 
-            document.getElementById("salida").innerText =
-                `🔑 Clave pública (e, n): (${publicKey.e}, ${publicKey.n})\n` +
-                `🔒 Clave privada (d, n): (${privateKey.d}, ${privateKey.n})\n\n` +
-                `🔮 Números primos (p, q): (${p}, ${q})\n\n` +
+            document.getElementById("resultado").innerText =
                 `📤 Mensaje original: ${mensaje}\n` +
                 `📦 Cifrado: ${cifrado.join(", ")}\n` +
                 `📥 Descifrado: ${descifrado}`;

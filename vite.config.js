@@ -176,7 +176,7 @@ export default defineConfig(({ command }) => {
             .map(
               ([name, path]) =>
                 `<li><a href="${base}${path}">${titleCase(
-                  name.replace("-", " ")
+                  name.replaceAll("-", " ")
                 )}</a></li>`
             )
             .join("\n");

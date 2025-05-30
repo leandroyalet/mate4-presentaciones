@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Relaciones en conjuntos</title>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <h1>Relaciones en conjuntos</h1>
+                <p>Reflexividad, Simetría e Inversas</p>
+                <p>
+                    <small>\(Bonoris \cup Yalet\)</small>
+                </p>
+            </section>
+
+            <section>
+                <h2>Relaciones en A</h2>
+                <p>Propiedades de relaciones bajo operaciones de conjunto</p>
+            </section>
+
+            <section>
+                <h2>Ejercicio 17</h2>
+                <p>Sean <span style="font-style: italic">R</span> y <span style="font-style: italic">S</span> relaciones
+                    en <span style="font-style: italic">A</span>. Probar que:</p>
+                <ul style="font-size: 0.9em; list-style-type: none;">
+                    <li>a) Si \( R \subseteq S \Rightarrow R^{-1} \subseteq S^{-1} \)</li>
+                    <li>b) Si \( R \) y \( S \) son reflexivas, entonces \( R \cup S \) y \( R \cap S \) también lo son
+                    </li>
+                    <li>c) Si \( R \) y \( S \) son simétricas, entonces \( R \cup S \) y \( R \cap S \) también lo son
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Parte A</h2>
+                    <p>Si \( R \subseteq S \Rightarrow R^{-1} \subseteq S^{-1} \)</p>
+                    <ul style="font-size: 0.9em">
+                        <li class="fragment">Sea \( (a,b) \in R^{-1} \Rightarrow (b,a) \in R \)</li>
+                        <li class="fragment">Como \( R \subseteq S \Rightarrow (b,a) \in S \Rightarrow (a,b) \in S^{-1}
+                            \)</li>
+                        <li class="fragment">Por lo tanto, \( (a,b) \in S^{-1} \Rightarrow R^{-1} \subseteq S^{-1} \)
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Inversas y Subconjuntos</h2>
+                    <p>
+                        <strong>Sea</strong> \( A = \{1, 2\} \)
+                    </p>
+                    <p>\[
+                        R \subseteq S \Rightarrow R^{-1} \subseteq S^{-1}
+                        \]</p>
+                    <p>
+                        <strong>Demostración:</strong> Si \( (b,a) \in R \), entonces \( (b,a) \in S \) y por lo tanto
+                        \( (a,b) \in S^{-1} \)
+                    </p>
+                    <p>
+                        <strong>Ejemplo:</strong> \( R = \{(1,2)\}, S = \{(1,2),(2,1)\} \)
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Parte B - Reflexividad</h2>
+                    <p>Si \( R \) y \( S \) son reflexivas:</p>
+                    <ul style="font-size: 0.9em">
+                        <li class="fragment">\( \forall a \in A, (a,a) \in R \land (a,a) \in S \)</li>
+                        <li class="fragment">Entonces \( (a,a) \in R \cup S \) y \( (a,a) \in R \cap S \)</li>
+                        <li class="fragment">\( \Rightarrow R \cup S \) y \( R \cap S \) son reflexivas</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Reflexividad</h2>
+                    <p>
+                        <strong>Sea</strong> \( A = \{1, 2\} \)
+                    </p>
+                    <p>\[
+                        R, S \text{ reflexivas } \Rightarrow R \cup S, R \cap S \text{ también lo son}
+                        \]</p>
+                    <p>
+                        <strong>Demostración:</strong> Si \( (a,a) \in R \) y \( (a,a) \in S \), entonces está en ambas
+                        combinaciones
+                    </p>
+                    <p>
+                        <strong>Ejemplo:</strong> \( R = \{(1,1), (2,2), (1,2)\} \), \( S = \{(1,1), (2,2), (2,1)\} \)
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Parte C - Simetría</h2>
+                    <p>Si \( R \) y \( S \) son simétricas:</p>
+                    <ul style="font-size: 0.9em">
+                        <li class="fragment">Sea \( (a,b) \in R \cup S \)</li>
+                        <li class="fragment">Si \( (a,b) \in R \Rightarrow (b,a) \in R \subseteq R \cup S \)</li>
+                        <li class="fragment">Si \( (a,b) \in S \Rightarrow (b,a) \in S \subseteq R \cup S \)</li>
+                        <li class="fragment">\( \Rightarrow R \cup S \) es simétrica</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Simetría en \( R \cap S \)</h2>
+                    <ul style="font-size: 0.9em">
+                        <li class="fragment">Sea \( (a,b) \in R \cap S \Rightarrow (a,b) \in R \land (a,b) \in S \)</li>
+                        <li class="fragment">\( \Rightarrow (b,a) \in R \land (b,a) \in S \Rightarrow (b,a) \in R \cap S
+                            \)</li>
+                        <li class="fragment">\( \therefore R \cap S \) es simétrica</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Simetría</h2>
+                    <p>
+                        <strong>Sea</strong> \( A = \{1, 2\} \)
+                    </p>
+                    <p>\[
+                        R, S \text{ simétricas } \Rightarrow R \cup S, R \cap S \text{ también lo son}
+                        \]</p>
+                    <p>
+                        <strong>Demostración:</strong> Si \( (a,b) \in R \Rightarrow (b,a) \in R \), lo mismo aplica a
+                        \( S \)
+                    </p>
+                    <p>
+                        <strong>Ejemplo:</strong> \( R = \{(1,2),(2,1)\}, S = \{(1,2),(2,1),(1,1)\} \)
+                    </p>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <script type="module" src="../main.js"></script>
+</body>
+
+</html>
