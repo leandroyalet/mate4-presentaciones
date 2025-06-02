@@ -9,5 +9,14 @@ export default () => ({
         emojis: ["🌈", "🦄", "💥", "✨", "💫", "🎈", "🎁", "🎉", "🎊", "💩"],
       });
     });
+
+    deck.on("slidechanged", (event) => {
+      const currentSlide = event.currentSlide;
+      if (currentSlide.classList.contains("confetti")) {
+        jsConfetti.addConfetti({
+          emojis: ["🌈", "🦄", "💥", "✨", "💫", "🎈", "🎁", "🎉", "🎊", "💩"],
+        });
+      }
+    });
   },
 });

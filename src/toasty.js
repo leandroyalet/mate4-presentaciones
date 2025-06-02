@@ -213,5 +213,12 @@ export default () => ({
     deck.addKeyBinding({ keyCode: 84, key: "T" }, () => {
       toasty.trigger();
     });
+
+    deck.on("slidechanged", (event) => {
+      const currentSlide = event.currentSlide;
+      if (currentSlide.classList.contains("toasty")) {
+        toasty.trigger();
+      }
+    });
   },
 });
