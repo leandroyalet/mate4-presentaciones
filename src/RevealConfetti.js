@@ -18,5 +18,17 @@ export default () => ({
         });
       }
     });
+
+    //confetti pero de futbol
+    deck.on("slidechanged", (event) => {
+      const currentSlide = event.currentSlide;
+      if (currentSlide.classList.contains("confetti-fulbo")) {
+      jsConfetti.addConfetti({
+        emojis: ["⚽️","🥈","🧊","🥶"],
+        confettiColors: ["#ff0000", "#00ff00", "#0000ff"],
+        confettiNumber: 100,
+      });
+      }
+    });
   },
 });
