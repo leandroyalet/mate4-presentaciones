@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Regresión lineal - Ejercicio 4</title>
+    <style>
+        table.programas tr th,
+        table.programas tr td {
+            text-align: center !important;
+        }
+
+        ol.puntos {
+            counter-reset: list;
+        }
+
+        ol.puntos>li {
+            list-style: none;
+        }
+
+        ol.puntos>li:before {
+            content: counter(list, lower-alpha) ") ";
+            counter-increment: list;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 50vh;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .chart-container canvas {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <h1 class="r-fit-text">Regresión lineal</h1>
+            </section>
+
+            <section data-background-color="white">
+                <p><strong>4)</strong> Los siguientes datos corresponden a los tiempos relativos en segundos que
+                    tardaron en
+                    ejecutarse
+                    seis programas elegidos al azar en el entorno Windows y en DOS:</p>
+                <table border="1" class="programas">
+                    <tr>
+                        <th></th>
+                        <th colspan="6">Programas</th>
+                    </tr>
+                    <tr>
+                        <td>Windows</td>
+                        <td>2,5</td>
+                        <td>7,1</td>
+                        <td>5</td>
+                        <td>8,5</td>
+                        <td>7</td>
+                        <td>8,1</td>
+                    </tr>
+                    <tr>
+                        <td>DOS</td>
+                        <td>2,3</td>
+                        <td>7,1</td>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>6,6</td>
+                        <td>5</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section data-background-color="white">
+                <ol type="a" class="puntos r-fit-text">
+                    <li>Realizar el gráfico de dispersión de los puntos</li>
+                    <li>Si un programa tarda 6 segundos en ejecutarse en Windows, ¿Cuánto tardará en ejecutarse en DOS?
+                    </li>
+                    <li>Se estima que los tiempos de Windows mejorarán reduciéndose en un 10% en los próximos años,
+                        estime la recta de regresión considerando esta mejora. Suponga que los tiempos DOS no se
+                        modifican.</li>
+                </ol>
+            </section>
+
+            <section data-background-color="white">
+                <h3>a) Gráfico de dispersión</h3>
+                <p class="r-fit-text">Vamos a definir como variable independiente \(X\) el tiempo de ejecución en
+                    Windows, y como variable
+                    dependiente \(Y\) el tiempo
+                    de ejecución en DOS. Así, tenemos:</p>
+                <div class="chart-container">
+                    <canvas id="scatterChart"></canvas>
+                </div>
+            </section>
+
+            <section>
+                <h3>b) Si un programa tarda 6 segundos en ejecutarse en Windows, ¿Cuánto tardará en ejecutarse en DOS?
+                </h3>
+                <p>
+                    Vamos a buscar llegar a una <em>Recta de Regresión</em> \( Y = aX + b \) para realizar predicciones
+                    y analizar
+                    la relación entre ambas variables.
+                </p>
+
+                <p><strong>¿Qué serían \( a \) y \( b \)?</strong></p>
+            </section>
+
+            <section>
+                <ul>
+                    <li>
+                        \( a \) es el estimador por mínimos cuadrados de la pendiente de la regresión, que se escribe \(
+                        \hat{\beta}_1 \). Se calcula:<br>
+                        \[
+                        a = \frac{n \sum (X_i Y_i) - \sum X_i \sum Y_i}{n \sum X_i^2 - (\sum X_i)^2}
+                        \]
+                    </li>
+                    <li>
+                        \( b \) es la ordenada al origen o intercepto de la regresión y se escribe \( \hat{\beta}_0 \).
+                        Se
+                        calcula:<br>
+                        \[
+                        b = \frac{\sum Y_i - a \sum X_i}{n}
+                        \]
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <p>
+                    Esto lo calculamos usando mínimos cuadrados, un método que se basa en minimizar el error cuadrático
+                    medio (ECM)
+                    entre los valores reales y los valores predichos.
+                </p>
+                <p>
+                    Así, llegamos a un modelo un poco más detallado de la regresión lineal simple:<br>
+                    \[
+                    \hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x
+                    \]
+                </p>
+            </section>
+
+            <section data-background-color="white">
+                <h3>Regresión Lineal - Windows vs DOS</h3>
+                <div class="chart-container">
+                    <canvas id="regresionChart"></canvas>
+                </div>
+            </section>
+
+            <section>
+                <p>Vemos que se obtuvo la ecuación de regresión</p>
+                <p>\(Y=0.8201x+0.2786\)</p>
+                <p>Si un programa tarda 6 segundos en ejecutarse en Windows, podemos aproximar el tiempor que tardará en
+                    ejecutarse en DOS
+                    con:</p>
+                <p>\(Y=0.8201(6)+0.2786=5.20\)</p>
+                <p>Así, un programa que tarda 6 segundos en ejecutarse en Windows, se estima que tardará 5.2 segundos en
+                    ejecutarse en DOS</p>
+            </section>
+
+
+            <section>
+                <h3>c) Se estima que los tiempos de Windows mejorarán reduciéndose en un 10% en los próximos años,
+                    estime la recta de regresión
+                    considerando esta mejora. Suponga que los tiempos DOS no se modifican.</h3>
+            </section>
+
+
+            <section data-background-color="white">
+                <div class="chart-container">
+                    <canvas id="adjustedChart"></canvas>
+                </div>
+            </section>
+
+            <section>
+                <p>Si los tiempos en Windows se reducen un 10%, cada valor de \(X\) se multiplica por
+                    <strong>0.9</strong>
+                </p>
+
+                <p>Nuevos valores: \(X_{\text{nuevo}} = X \times 0.9\)</p>
+
+                <p>Aplicamos la regresión nuevamente y obtenemos una nueva ecuación: \(Y = 0.9112 x + 0.2786\)</p>
+
+                <p>¿Qué podemos observar?</p>
+                <ul>
+                    <li>Ahora la pendiente es mayor, lo que indica que los tiempos en Windows ahora influyen más en DOS.
+                    </li>
+                    <li>Si Windows mejora su rendimiento, la relación entre ambos tiempos cambia.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Conclusiones</h3>
+                <ul>
+                    <li>La regresión lineal nos ayuda a modelar relaciones entre dos variables.</li>
+                    <li>La ecuación obtenida nos permite hacer predicciones.</li>
+                    <li>Si una variable cambia (como la mejora en Windows), debemos recalcular la regresión.</li>
+                </ul>
+            </section>
+
+            <section>
+                <a href="https://colab.research.google.com/drive/1dP8SM3m7Zfs6LyuLpCsqXZKh6lnYCu1j?usp=sharing"
+                    target="_blank">Link al Colab 🔗</a>
+            </section>
+        </div>
+    </div>
+
+    <script type="module" src="../main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./charts.js"></script>
+
+</body>
+
+</html>
