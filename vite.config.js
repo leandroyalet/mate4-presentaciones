@@ -4,7 +4,6 @@ import colors from "picocolors";
 import os from "os";
 import { Server as SocketIOServer } from "socket.io";
 import { defineConfig } from "vite";
-import { fileURLToPath } from "node:url";
 
 const publicDir = resolve(__dirname, "public");
 const root = resolve(__dirname, "src");
